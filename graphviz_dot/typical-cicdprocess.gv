@@ -1,0 +1,23 @@
+digraph G {
+  node [shape="box"];
+
+  "pipeline_gitcommit" [label="commit" shape="cds" style="filled" color="lightgrey"];
+  "pipeline_readpipe" [label="./<pipeline.yml>" shape="diamond"];
+  "p1" [shape=none, width=0, height=0, label=""];
+  "pipeline_end" [label="end" shape="ellipse" style="filled" color="lightgrey"];
+
+  "pipeline_setversion" [label="setversion"];
+  "pipeline_build" [label="build"];
+  "pipeline_test" [label="test"];
+  "pipeline_deploy" [label="deploy"]; 
+
+  pipeline_gitcommit -> pipeline_readpipe;
+  pipeline_readpipe -> pipeline_setversion [label="Y"];
+  pipeline_readpipe -> p1 [label="N" dir="none"];
+  p1 -> pipeline_end ;
+  pipeline_setversion -> pipeline_build -> pipeline_test -> pipeline_deploy;
+  pipeline_deploy -> p1 [constraint="false" dir="none"];
+
+  {rank="same"; "pipeline_readpipe" "pipeline_setversion";};  
+  {rank="same"; "p1" "pipeline_deploy";};  
+}

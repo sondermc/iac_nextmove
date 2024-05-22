@@ -1,0 +1,59 @@
+digraph G {
+  rankdir="LR"
+  "</> main.tf" [shape="plaintext"];
+  "</> terraform provider" [shape="plaintext"];
+
+  subgraph A {
+    cluster=true
+    label="Computer system"
+    node [label="\N", fontsize=15, shape=plaintext];
+    atbl [label=<
+      <TABLE BGCOLOR="lightgray" STYLE="ROUNDED" CELLSPACING="5" WIDTH="50" PORT="a1">
+        <TR><TD BORDER="0" >network socket</TD></TR>
+        <TR> 
+          <TD  BORDER="0">
+            <TABLE BGCOLOR="lightblue" STYLE="ROUNDED" CELLSPACING="5" WIDTH="50"  PORT="a2">
+              <TR><TD BORDER="0" PORT="a1">API</TD></TR> 
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    >, ];
+
+    btbl [label=<
+      <TABLE STYLE="ROUNDED" CELLSPACING="5" WIDTH="50" PORT="a1">
+        <TR>
+          <TD BGCOLOR="khaki" STYLE="ROUNDED" PORT="l1" WIDTH="50">Cpu</TD>
+          <TD BGCOLOR="khaki" STYLE="ROUNDED" PORT="l2" WIDTH="50">Memory</TD>
+          <TD BGCOLOR="khaki" STYLE="ROUNDED" PORT="l3" WIDTH="50">Storage</TD>
+          <TD BGCOLOR="khaki" STYLE="ROUNDED" PORT="l4" WIDTH="50">Network</TD>
+        </TR> 
+      </TABLE>
+    >, ];
+  };
+  subgraph B {
+    cluster=true
+    label="Another computer system"
+    node [label="\N", fontsize=15, shape=plaintext];
+    ztbl [label=<
+      <TABLE STYLE="ROUNDED" CELLSPACING="5" WIDTH="50" PORT="a1">
+        <TR>
+          <TD BGCOLOR="khaki" STYLE="ROUNDED" PORT="l1" WIDTH="50">Cpu</TD>
+          <TD BGCOLOR="khaki" STYLE="ROUNDED" PORT="l2" WIDTH="50">Memory</TD>
+          <TD BGCOLOR="khaki" STYLE="ROUNDED" PORT="l3" WIDTH="50">Storage</TD>
+          <TD BGCOLOR="khaki" STYLE="ROUNDED" PORT="l4" WIDTH="50">Network</TD>
+        </TR> 
+      </TABLE>
+    >, ];
+
+    terraform [shape="box"];
+    terraform->atbl:a1 [constraint="false"]; 
+  };
+
+  "</> main.tf" -> terraform;
+  "</> terraform provider" -> terraform;
+  atbl:a1->btbl:l1[style="dotted"];
+  atbl:a1->btbl:l2[style="dotted"];
+  atbl:a1->btbl:l3[style="dotted"];
+  atbl:a1->btbl:l4[style="dotted"];
+}

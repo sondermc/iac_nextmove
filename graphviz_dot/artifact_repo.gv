@@ -1,0 +1,26 @@
+digraph G {
+  node [shape="box"];
+  rankdir="LR";
+
+  subgraph cluster0 {
+    label="Artifact repository";
+    node [shape="tripleoctagon" style="filled" color="white"];
+    style="filled";
+    color="lightgrey";
+    docker_type;
+    rpm_type ;
+    {
+      node [shape="plaintext"];
+      edge[dir="none"];
+      tool_semver -> docker_type;
+      tool_rpmbuild -> docker_type;
+      tool_gcc -> docker_type;
+    }
+    {
+      node [shape="plaintext"];
+      edge[dir="none"];
+      corporate_pkica -> rpm_type;
+      some_service_pki -> rpm_type;
+    }
+  }
+}

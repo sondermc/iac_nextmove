@@ -1,0 +1,78 @@
+digraph G {
+  node [shape="box"];
+  rankdir="LR";
+
+  subgraph cluster0 {
+    label="</> Gitrepo Docker-type";
+    rank=same;
+    labeldistance="1";
+    labeljust="l" ;
+    edge[weight="1000"];
+    docker_gitcommit [label="commit" shape="cds" style="filled" color="lightgrey"];
+    subgraph cluster1 {
+      label="./<pipeline.yml>";
+      docker_setversion [label="setversion"];
+      docker_build [label="build"];
+      docker_test [label="test"];
+      docker_deploy [label="deploy"];
+    } 
+  }
+
+  subgraph cluster10 {
+    label="Artifact repository";
+    labeldistance="1";
+    labeljust="r";
+    node            [shape="tripleoctagon" style="filled" color="white"];
+    style="filled";
+    color="lightgrey";
+    {
+      node          [shape="plaintext" headport="w" tailport="w"];
+      edge[dir="none"];
+      tool_semver -> docker_type;
+      tool_rpmbuild -> docker_type;
+      tool_gcc -> docker_type;
+    }
+    {
+      node          [shape="plaintext"];
+      edge[dir="none"];
+
+      corporate_pkica -> rpm_type;
+      matchbox_pki -> rpm_type;
+    }
+    docker_type;
+    rpm_type ;
+  }
+
+  subgraph cluster20 {
+    label="</> Gitrepo RPM-type";
+    labeldistance="1";
+    labeljust="l";
+    labelloc="b";
+    edge[weight="1000"];
+    rank="same"; 
+    rpm_gitcommit   [label="commit" shape="cds" style=filled color=lightgrey];
+    subgraph cluster21 {
+      label="./<pipeline.yml>"
+      rpm_setversion  [label="setversion"]; 
+      rpm_action      [label="action"]; 
+      rpm_build       [label="package"]; 
+      rpm_test        [label="test"]; 
+      rpm_deploy      [label="deploy"]; 
+      rpm_tag         [label="git tag"]; 
+    }
+  }
+
+  {docker_gitcommit -> docker_setversion -> docker_build -> docker_test -> docker_deploy};
+  docker_deploy -> docker_type [label="docker push" style="dotted" decorate=true];
+
+  rpm_gitcommit -> rpm_setversion -> rpm_action -> rpm_build -> rpm_test -> rpm_deploy -> rpm_tag ;
+  rpm_deploy -> rpm_type [label="rpm upload" style="dotted" decorate=true];
+
+  docker_setversion -> tool_semver [label="docker pull/run" style="dashed" decorate=true arrowhead="none" arrowtail="none"];
+
+  rpm_setversion -> tool_semver [label="docker pull/run" style="dashed" decorate=true arrowhead="none" arrowtail="none"];
+  rpm_build -> tool_rpmbuild [label="docker pull/run" style="dashed" decorate=true arrowhead="none" arrowtail="none"];
+
+//  docker_deploy -> rpm_deploy [style="invis"];
+//  docker_setversion -> rpm_setversion [style="invis"];
+}
