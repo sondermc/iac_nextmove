@@ -20,6 +20,10 @@ In this phase you like to think about what you like to achieve. Be a dreamer and
 - a centralized artifact repository
 - a centralized way of monitoring the crown-jewels
 
+Next to that:
+- you need a landingzone where you and your colleages are authorized to perform all CRUD-functions required to run the service.
+- A very nice to have is the insight in cost and the benefits of the current service. Once IaC is running it can be used for comparison to the new state.
+
 ### Education
 Teach your audience what Infra as Code is about. At least they should understand:
 The principle of: 
@@ -29,7 +33,9 @@ The principle of:
 - never, ever push secrets to git
 - build once, deploy anywhere
 
-On top of that: These are the questions you like you audience to answer for themselves. In relation to your digital service:
+On top of that: These are the questions you like you audience to answer for themselves. 
+
+In relation to your digital service:
 1. What does your (partial) product look like?
 1. Who is your consumer?
 1. Does this consumer have a list of requirements?
@@ -38,24 +44,28 @@ On top of that: These are the questions you like you audience to answer for them
 1. Is the handling op your service based on manual steps?
 1. Are there approvals in the process that are always approved "unseen"?
 1. what is the estimated time to delivery of the service?
-1. do you make use of DORA metrics of your service?
-1. is there a historic view on the DORA metrics?
-1. where is your service running?
+1. Do you make use of DORA metrics of your service?
+1. Is there a historic view on the DORA metrics?
+1. Where is your service running?
 1. What dependencies do you have for the functioning of your service?
 1. What interfaces do you use for a production flow?
+1. What makes you confident the service is functioning correctly?
+1. What makes you confident the service does not contain 'unwanted' content?
 1. Is there any documentation available of the interfaces?
 1. Is there a workinstruction on how to mock a dependent version while testing in isolation? 
-In relation to CRUD: 
-1. Can a customer Create a (partial) product via a digital way? (I'm referring to the use of an exposed API, not by sending an Excel-sheet via email).
+1. What is the strategy?
+1. What architecture do I use for my service?
+
+In relation to exposing your service: (based on the basic funtions identified by CRUD): 
+1. Can a customer Create a (partial) product via a digital way? (I'm referring to the use of an exposed (Backend)-API, not by sending an Excel-sheet via email).
 1. Can a customer Read the status of their consumed product?
 1. Can a customer Update their consumed product?
 1. Can a customer Delete their consumed product?
-1. what is the strategy
-1. what architecture do I use for my service
 
+If you feel intimidated by the questions, skip them. However, this is the point where you start coding your infrastructure.
 ___
 ## Identification
-Get the answers of the previous step and:
+If applicable, get the answers of the previous step and:
 - Acknowledge that something needs to change.
 - Write down in a S.M.A.R.T. way what is subjected to change.
 - Check if your planned solution is aligned with the answers in the previous step
