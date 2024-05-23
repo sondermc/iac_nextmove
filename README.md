@@ -65,7 +65,7 @@ ___
 ## Containment, Isolate
 Start finalizing the workon developing a consistent way of exposing your service. A proven technology is to develop an API that supports the basic functions of CRUD (Create, Read, Update, and Delete)
 
-- If the new way of working is not good enough, add the 'deviations' of the new way of working to the identification list. For the remainder leave the list at rest.
+- If the new way of working is not good enough, add the 'deviations' of the new way of working to the identification list. For the remainder leave the list at rest, but keep it insight.
 - For any new request, start using the new way of working. At the start invest in guiding your consumer.
 - Is the new way of working functioning well enough to support your consumers?
 
@@ -80,6 +80,7 @@ It is now time to work on the list created by the identification step.
 - when making this plan, keep in mind:
 - Is there a possibility to adept the new-way-of-working without breaking the old way of working?
 - if not, is it a plan to rebuild a new service? 
+- As long as there are no items on this list, the content of the list should be part of your day-to-day operations, until the list is empty. This is the only good reason to drop the list.
 
 ___
 ## Lessons Learned
