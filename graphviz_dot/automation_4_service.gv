@@ -1,0 +1,71 @@
+digraph G {
+  node [shape="plaintext"];
+
+  subgraph A {
+    cluster=true
+    label="'Operations'-team"
+    node [label="\N", fontsize=15, shape=plaintext];
+    atbl [label=<
+      <TABLE BGCOLOR="grey96" STYLE="ROUNDED" CELLSPACING="5" WIDTH="50" PORT="a1" BORDER="0px">
+        <TR><TD BORDER="0" >Order intake</TD></TR>
+        <TR> 
+          <TD  BORDER="0">
+            <TABLE BGCOLOR="white" STYLE="ROUNDED" CELLSPACING="5" WIDTH="50"  PORT="a2" BORDER="0px">
+              <TR><TD BORDER="0" PORT="a1">Manual processing</TD></TR> 
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    >, ];
+    ctbl [label=<
+      <TABLE BGCOLOR="lightgray" STYLE="ROUNDED" CELLSPACING="5" WIDTH="50" PORT="c1">
+        <TR><TD BORDER="0" >API</TD></TR>
+        <TR> 
+          <TD  BORDER="0">
+            <TABLE BGCOLOR="lightblue" STYLE="ROUNDED" CELLSPACING="5" WIDTH="50"  PORT="c1">
+              <TR><TD BORDER="0" PORT="c1">Enterprise Service Bus</TD></TR> 
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    >, ];
+
+    btbl [label=<
+      <TABLE STYLE="ROUNDED" CELLSPACING="5" WIDTH="50" PORT="a1">
+        <TR>
+          <TD BGCOLOR="khaki" STYLE="ROUNDED" PORT="l1" WIDTH="50">product 1</TD>
+          <TD BGCOLOR="khaki" STYLE="ROUNDED" PORT="l2" WIDTH="50">product 2</TD>
+          <TD BGCOLOR="khaki" STYLE="ROUNDED" PORT="l3" WIDTH="50">product 3</TD>
+          <TD BGCOLOR="khaki" STYLE="ROUNDED" PORT="l4" WIDTH="50">product ...</TD>
+        </TR> 
+      </TABLE>
+    >, ];
+
+  };
+ 
+  "IaC code" -> "order" [style="invis"];
+  
+  "IaC code" -> provider ;
+
+  "e-mail" -> order [color="grey"];
+  "ticket" -> order [color="grey"];
+  "manager" -> order [color="grey"];
+  "phone" -> order [color="grey"];
+  "userstory" -> order [color="grey"];
+  "internal chatbox" -> order [color="grey"];
+  "..." -> order [color="grey"];
+
+  order->atbl:a1 [color="grey"]; 
+  atbl:a1->btbl:l1[style="dotted" color="grey"];
+  atbl:a1->btbl:l2[style="dotted" color="grey"];
+  atbl:a1->btbl:l3[style="dotted" color="grey"];
+  atbl:a1->btbl:l4[style="dotted" color="grey"];
+
+  ctbl:c1->btbl:l1[style="dotted"];
+  ctbl:c1->btbl:l2[style="dotted"];
+  ctbl:c1->btbl:l3[style="dotted"];
+  ctbl:c1->btbl:l4[style="dotted"];
+
+  edge [labelOverlay="50%" label="C\nR\nU\nD\n"] provider -> ctbl:c1 [dir=both];
+
+}
