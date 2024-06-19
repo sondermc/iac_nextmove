@@ -13,7 +13,7 @@ When I look as a technical-consultant to the status of 'infrastructure as code' 
 ### How to move towards an automated way of working.
 Since there are a lot of enviroments like AWS or Azure which offer great services to enable the dream of your business. In many cases the 'cloud' offers complete solutions. There are however more than one or two cases that requires interaction with existing services running in a other/different environment. This document will embrace those enviroments not being able to be managed only by the cloud. 
 
-As a disclaimer: this document is about what I run into on regular bases. Don't feel offended if you and your company have been progressively changing and ahead of this document. I would love to incorporate your storyline if you already outperform this situation. You might recognize this Way of working as Branch-by-abstraction
+As a disclaimer: this document is about what I run into on regular bases. Don't feel offended if you and your company have been progressively changing and ahead of this document. I would love to incorporate your storyline if you already outperform this situation. You might recognize this Way of working as 'Branch by abstraction' (red. Martin Fowler).
 
 #### A typical service model
 This diagram is a schematic overview of how 'requests' are transformed into changes:
@@ -22,7 +22,7 @@ There are multiple channels placing an order at a team, requesting for updates o
 
 #### Migration start
 <img src="./img/automation_4_service.png" alt="Parallel processing" style="width:300px;"/>
-The next model addresses this issue by keeping the service as-is and 'create' or enable a parrallel flow, purely based on code. To enable your service you expose 4 functions to the outside-world where besed on a 'provider' you can do all operations on the backend system. 
+The next model addresses this issue by keeping the service as-is and 'create' or enable a parrallel flow, purely based on code. To enable your service you expose 4 functions to the outside-world where based on a 'provider' you can do all operations on the backend system. 
 
 ___
 ## Preparation
