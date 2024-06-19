@@ -1,0 +1,97 @@
+digraph Gantt {
+    rankdir=TB;
+    node [shape=rect, style=filled, fillcolor=lightblue];
+
+    // Define subgraphs for each year
+    subgraph cluster_Year1 {
+        label="Year 1: Preparation and Initial Implementation";
+        style=filled;
+        color=lightgrey;
+
+        "Q1_M1" [label="M1: Analysis and Inventory"];
+        "Q1_M2" [label="M2: Stakeholder Engagement"];
+        "Q1_M3" [label="M3: Strategic Planning"];
+        "Q2_M4" [label="M4: Pilot Project Preparation"];
+        "Q2_M5" [label="M5: Pilot Implementation"];
+        "Q2_M6" [label="M6: Training and Support"];
+        "Q3_M7" [label="M7: Evaluation of Pilot"];
+        "Q3_M8" [label="M8: Deployment Strategy Development"];
+        "Q3_M9" [label="M9: Preparation for Deployment"];
+        "Q4_M10" [label="M10: Start Broad Deployment"];
+        "Q4_M11" [label="M11: Evaluation and Adjustment"];
+        "Q4_M12" [label="M12: Progress Reporting"];
+    }
+
+    subgraph cluster_Year2 {
+        label="Year 2: Expansion and Integration";
+        style=filled;
+        color=lightgrey;
+
+        "Q1_M13" [label="M13: Continued Deployment"];
+        "Q1_M14" [label="M14: Integration with CI/CD"];
+        "Q1_M15" [label="M15: Training and Support"];
+        "Q2_M16" [label="M16: Optimization Initiatives"];
+        "Q2_M17" [label="M17: Best Practices and Documentation"];
+        "Q2_M18" [label="M18: Continuous Training and Support"];
+        "Q3_M19" [label="M19: Expansion to Advanced Areas"];
+        "Q3_M20" [label="M20: Promoting Culture Change"];
+        "Q3_M21" [label="M21: Evaluation and Adjustment"];
+        "Q4_M22" [label="M22: Stabilization"];
+        "Q4_M23" [label="M23: Maturity Assessment"];
+        "Q4_M24" [label="M24: Annual Review and Planning"];
+    }
+
+    subgraph cluster_Year3 {
+        label="Year 3: Optimization and Maturity";
+        style=filled;
+        color=lightgrey;
+
+        "Q1_M25" [label="M25: Identification of Optimization Opportunities"];
+        "Q1_M26" [label="M26: Implementation of Improvements"];
+        "Q1_M27" [label="M27: Continued Training and Support"];
+        "Q2_M28" [label="M28: Process Refinement"];
+        "Q2_M29" [label="M29: Scaling to New Environments"];
+        "Q2_M30" [label="M30: Continuous Support and Improvement"];
+        "Q3_M31" [label="M31: Advanced Process Automation"];
+        "Q3_M32" [label="M32: Integration with New Technologies"];
+        "Q3_M33" [label="M33: Evaluation and Adjustment"];
+        "Q4_M34" [label="M34: Completion of Initiatives"];
+        "Q4_M35" [label="M35: Evaluation of Organizational Impact"];
+        "Q4_M36" [label="M36: Annual Review and Future Planning"];
+    }
+
+    // Define relationships between months and activities
+    "Q1_M1" -> "Q1_M2";
+    "Q1_M2" -> "Q1_M3";
+    "Q1_M3" -> "Q2_M4";
+    "Q2_M4" -> "Q2_M5";
+    "Q2_M5" -> "Q2_M6";
+    "Q2_M6" -> "Q3_M7";
+    "Q3_M7" -> "Q3_M8";
+    "Q3_M8" -> "Q3_M9";
+    "Q3_M9" -> "Q4_M10";
+    "Q4_M10" -> "Q4_M11";
+    "Q4_M11" -> "Q4_M12";
+    "Q1_M13" -> "Q1_M14";
+    "Q1_M14" -> "Q1_M15";
+    "Q1_M15" -> "Q2_M16";
+    "Q2_M16" -> "Q2_M17";
+    "Q2_M17" -> "Q2_M18";
+    "Q2_M18" -> "Q3_M19";
+    "Q3_M19" -> "Q3_M20";
+    "Q3_M20" -> "Q3_M21";
+    "Q3_M21" -> "Q4_M22";
+    "Q4_M22" -> "Q4_M23";
+    "Q4_M23" -> "Q4_M24";
+    "Q1_M25" -> "Q1_M26";
+    "Q1_M26" -> "Q1_M27";
+    "Q1_M27" -> "Q2_M28";
+    "Q2_M28" -> "Q2_M29";
+    "Q2_M29" -> "Q2_M30";
+    "Q2_M30" -> "Q3_M31";
+    "Q3_M31" -> "Q3_M32";
+    "Q3_M32" -> "Q3_M33";
+    "Q3_M33" -> "Q4_M34";
+    "Q4_M34" -> "Q4_M35";
+    "Q4_M35" -> "Q4_M36";
+}
